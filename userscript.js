@@ -15,15 +15,33 @@
         image: ".entry img",
         outputBlock: ".entry p:nth-child(5)"
     },{
-        page: ".pagination:nth-child(7) .pagination-link",
+        page: ".pagination:nth-child(6) .pagination-link",
         image: ".article-fulltext img",
+        start: 1,
         outputBlock: ".article-fulltext"
     },{
         page: ".pagination-site a.page-numbers",
         start: 1,
-        end: 1,
+        end: -1,
         image: ".contentme img",
         outputBlock: ".contentme"
+    },{
+        page: "#paginator a",
+        end: -2,
+        image: "#display_image_detail img",
+        outputBlock: "#display_image_detail"
+    },{
+        page: "#pages a",
+        end: -1,
+        autofill: true,
+        image: ".pictures img.con_img",
+        outputBlock: ".pictures"
+    },{
+        page: ".nav-links a.page-numbers",
+        end: -1,
+        autofill: true,
+        image: "#image_div a img",
+        outputBlock: "#image_div p:first-child"
     }];
     async function main(){
         console.log("start");
@@ -47,7 +65,8 @@
             if (!outputBlock){
                 return false;
             }
-            for (let i= site.start || 0 ;i<pages.length - (site.end || 0 );i++){
+
+            for (let i= site.start || 0 ;i<pages.length + (site.end || 0 );i++){
                 let href = pages[i].href;
                 let response = await getRawHtml(href);
 
