@@ -42,6 +42,11 @@
         autofill: true,
         image: "#image_div a img",
         outputBlock: "#image_div p:first-child"
+    },{
+        page: ".page-link-box a.page-numbers",
+        autofill: true,
+        image: ".wp-block-post-content .wp-block-image img",
+        outputBlock: ".wp-block-post-content .wp-block-gallery"
     }];
     async function main(){
         console.log("start");
